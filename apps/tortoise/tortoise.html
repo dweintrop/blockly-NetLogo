@@ -15,13 +15,13 @@
 <body>
 
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  // })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-48979622-1', 'northwestern.edu');
-  ga('send', 'pageview');
+  // ga('create', 'UA-48979622-1', 'northwestern.edu');
+  // ga('send', 'pageview');
 
 </script>
 
@@ -173,11 +173,17 @@
   <script type="text/javascript" src="../../generators/javascript/variables.js"></script>
 
   
+  <!-- <script type="text/javascript" src="../../netlogo_compressed.js"></script> -->
+  <script type="text/javascript" src="../../generators/netlogo.js"></script>
+  <script type="text/javascript" src="../../generators/netlogo/turtle.js"></script>
+  <script type="text/javascript" src="../../generators/netlogo/math.js"></script>
 
   <script type="text/javascript" src="../../python_compressed.js"></script>
 
-
   <script type="text/javascript" src="tortoise.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/tortoise.css">
+  
  
  <!-- Code Mirror stuff -->
   <script type="text/javascript" src="js/codemirror.js"></script>
@@ -202,92 +208,15 @@
 </div>
 
 
-<!-- Tortoise STUFF - SOME OF WHICH IS CRIBBED FROM THE CODE APP -->
-
-<style type="text/css">
-/* Tabs */
-#tabRow>td {
-  border: 1px solid #ccc;
-}
-td.tabon {
-  border-bottom-color: #ddd !important;
-  background-color: #ddd;
-  padding: 5px 19px;
-}
-td.taboff {
-  cursor: pointer;
-  padding: 5px 19px;
-}
-td.taboff:hover {
-  background-color: #eee;
-}
-td.tabmin {
-  border-top-style: none !important;
-  border-left-style: none !important;
-  border-right-style: none !important;
-}
-td.tabmax {
-  border-top-style: none !important;
-  border-left-style: none !important;
-  border-right-style: none !important;
-  width: 99%;
-  padding-left: 10px;
-  padding-right: 10px;
-  text-align: right;
-}
-html[dir=rtl] td.tabmax {
-  text-align: left;
-}
-
-table {
-  border-collapse: collapse;
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-td {
-  padding: 0;
-  vertical-align: top;
-}
-.content {
-  visibility: hidden;
-  margin: 0;
-  padding: 1ex;
-  position: absolute;
-}
-pre.content {
-  overflow: auto;
-}
-#content_blocks {
-  padding: 0;
-}
-.blocklySvg {
-  border-top: none !important;
-}
-#content_xml {
-  resize: none;
-  outline: none;
-  border: none;
-  font-family: monospace;
-  overflow: auto;
-}
-#languageMenu {
-  vertical-align: top;
-  margin-top: 15px;
-  margin-right: 15px;
-}
-</style>
-
-
-<div id="Tortoise" style="position:fixed;">
+<div id="tortoise" style="position:fixed;">
 
   <table width="100%">
     <tr id="tabRow" height="16px;">
       <td id="tab_javascript" class="taboff" onclick="Tortoise.code.tabClick(this.id)">JS - Read Only</td>
       <td class="tabmin">&nbsp;</td>
-      <td id="tab_codeMirror" class="tabon" onclick="Tortoise.code.tabClick(this.id)">JS - Code Mirror</td>
+      <td id="tab_codeMirror" class="taboff" onclick="Tortoise.code.tabClick(this.id)">JS - Code Mirror</td>
       <td class="tabmin">&nbsp;</td>
-      <td id="tab_netLogo" class="taboff" onclick="Tortoise.code.tabClick(this.id)">NetLogo</td>
+      <td id="tab_netLogo" class="tabon" onclick="Tortoise.code.tabClick(this.id)">NetLogo</td>
       <td class="tabmin">&nbsp;</td>
       <td id="tab_python" class="taboff" onclick="Tortoise.code.tabClick(this.id)">Python</td>
       <td class="tabmin">&nbsp;</td>
@@ -300,7 +229,7 @@ pre.content {
     <textarea id="codeMirror-textArea"></textarea>
   </div>
   <div id="content_netLogo" class="content">
-
+    <textarea id="netLogo-textArea"></textarea>
   </div>
   <pre id="content_python" class="content"></pre>
   <div id="content_xml" class="content" ><textarea id="codeMirror_xml"></textarea></div>

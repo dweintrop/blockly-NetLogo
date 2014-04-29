@@ -15,7 +15,7 @@ goog.require('goog.events');
 Tortoise.updater = null;
 
 Tortoise.init = function() {
-	Tortoise.updater = Tortoise.updatePrettyJS;
+	Tortoise.updater = Tortoise.updateNetLogo;
 }
 
 Tortoise.update = function() {
@@ -23,7 +23,7 @@ Tortoise.update = function() {
 }
 
 Tortoise.resize = function(parentBlock) {
-	var TortoiseDiv = document.getElementById('Tortoise');
+	var TortoiseDiv = document.getElementById('tortoise');
 
   TortoiseDiv.style.cssText = parentBlock.style.cssText;
   TortoiseDiv.style.top = (parentBlock.scrollHeight + 100) + 'px';
@@ -54,33 +54,13 @@ Tortoise.updatePrettyJS = function () {
   outputDiv.innerHTML = prettyCode;
 }
 
-// Tortoise.updateEditableJS = function () {
-	
-// 	// these lines duplicate updatedPrettyJS - combine if prettyJS sticks around
-// 	// var outputDiv = document.getElementById('content_editablejavascript')
-// 	var code = Blockly.Generator.workspaceToCode('JavaScript');
-// 	var prettyCode = BlocklyApps.stripCode(code)
-// 	Tortoise.editableJSDiv.setHtml(false, prettyCode, true);
-// 	Tortoise.jsUpdated();	
-// }
-
-// Tortoise.jsUpdated = function () {
-// 	var prettyCode = Tortoise.editableJSDiv.getElement().textContent;
-// 	// var prettyCode = BlocklyApps.stripCode(strippedJSText);
-// 	if (typeof prettyPrintOne == 'function') {
-//     prettyCode = prettyPrintOne(prettyCode, 'js');
-//     Tortoise.editableJSDiv.setHtml(false, prettyCode, true);
-//   } 
-// }
-
-
 // CODE MIRROR TAB
 Tortoise.JScodeMirror = null;
 Tortoise.NLcodeMirror = null;
 
 Tortoise.updateJSCodeMirror = function () {
   Tortoise.updater = Tortoise.updateJSCodeMirror;
-  if (Tortoise.codeMirror == null) {
+  if (Tortoise.JScodeMirror == null) {
     var cmTextArea = document.getElementById('codeMirror-textArea');
     cmTextArea.value = code;
     Tortoise.JScodeMirror = CodeMirror.fromTextArea(cmTextArea, 
@@ -92,14 +72,15 @@ Tortoise.updateJSCodeMirror = function () {
   }
 	
   var code = Blockly.JavaScript.workspaceToCode();
-	Tortoise.JScodeMirror.setValue(code);
+  var prettyCode = BlocklyApps.stripCode(code);
+	Tortoise.JScodeMirror.setValue(prettyCode);
 }
 
 Tortoise.updateNetLogo = function() {
   Tortoise.updater = Tortoise.updateNetLogo;
   if (Tortoise.NLcodeMirror == null) {
     var nlTextArea = document.getElementById('netLogo-textArea');
-    Tortoise.codeMirror = CodeMirror.fromTextArea(cmTextArea, 
+    Tortoise.NLcodeMirror = CodeMirror.fromTextArea(nlTextArea, 
       {
         mode: "javascript",
         lineNumbers: true,
@@ -118,7 +99,7 @@ Tortoise.parseJS = function() {
 Tortoise.updatePython = function () {
 	Tortoise.updater = Tortoise.updatePython;
 	var outputDiv = document.getElementById('content_python')
-  var code = Blockly.Generator.workspaceToCode('Python');
+  var code = Blockly.Python.workspaceToCode();
   var prettyCode = BlocklyApps.stripCode(code);
   outputDiv.textContent = prettyCode;
   if (typeof prettyPrintOne == 'function') {
@@ -162,7 +143,7 @@ Tortoise.code = {};
  */
 Tortoise.code.TABS_ = ['javascript', 'netLogo', 'codeMirror', 'python', 'xml'];
 
-Tortoise.code.selected = 'codeMirror';
+Tortoise.code.selected = 'netLogo';
 
 /**
  * Switch the visible pane when a tab is clicked.

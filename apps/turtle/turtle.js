@@ -62,9 +62,18 @@ Turtle.init = function() {
   var visualization = document.getElementById('visualization');
   var onresize = function(e) {
     var top = visualization.offsetTop;
-    blocklyDiv.style.top = Math.max(10, top - window.pageYOffset) + 'px';
+    blocklyDiv.style.top = Math.max(10, top - window.scrollY) + 'px';
     blocklyDiv.style.left = rtl ? '10px' : '420px';
     blocklyDiv.style.width = (window.innerWidth - 440) + 'px';
+    
+    //TEMP: fix the height for side-by-side work
+    blocklyDiv.style.height = ( (window.innerHeight - 100) / 2) + 'px';
+
+    //TODO: make this a passed in configurable thing: isTortoise
+    if (Tortoise && Tortoise.resize) {
+      Tortoise.resize(blocklyDiv);
+    }
+
   };
   window.addEventListener('scroll', function() {
       onresize();
@@ -125,6 +134,13 @@ Turtle.init = function() {
 
   BlocklyApps.bindClick('runButton', Turtle.runButtonClick);
   BlocklyApps.bindClick('resetButton', Turtle.resetButtonClick);
+
+  // Hookup Tortoise listener
+  //TODO: make this a passed in configurable thing: isTortoise
+  if (Tortoise && Tortoise.init) {
+    Tortoise.init();
+    Blockly.addChangeListener(Tortoise.update);
+  }
 
   // Lazy-load the syntax-highlighting.
   window.setTimeout(BlocklyApps.importPrettify, 1);
