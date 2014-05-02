@@ -163,6 +163,7 @@ Blockly.Msg.LOGIC_OPERATION_TOOLTIP_AND = 'Return true if both inputs are true.'
 Blockly.Msg.LOGIC_OPERATION_TOOLTIP_OR = 'Return true if either inputs are true.';
 
 Blockly.Msg.LOGIC_NEGATE_HELPURL = 'http://code.google.com/p/blockly/wiki/Not';
+Blockly.Msg.LOGIC_NEGATE_TITLE = "not %1";
 Blockly.Msg.LOGIC_NEGATE_INPUT_NOT = 'not';
 Blockly.Msg.LOGIC_NEGATE_TOOLTIP = 'Returns true if the input is false.\n' +
     'Returns false if the input is true.';

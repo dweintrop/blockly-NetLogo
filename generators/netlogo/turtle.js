@@ -51,11 +51,11 @@ Blockly.NetLogo['draw_width'] = function(block) {
 };
 
 Blockly.NetLogo['draw_pen'] = function(block) {
-	return 'penUp' == (block.getFieldValue('PEN') ? 'pen-up' : 'pen-down') + '\n';
+	return ('penUp' == block.getFieldValue('PEN') ? 'pen-up' : 'pen-down') + '\n';
 };
 
 Blockly.NetLogo['draw_colour'] = function(block) {
-  var colour = Blockly.JavaScript.valueToCode(block, 'COLOUR',
+  var colour = Blockly.NetLogo.valueToCode(block, 'COLOUR',
       Blockly.JavaScript.ORDER_NONE) || '\'#000000\'';
   return 'set color ' + colour + '\n';
 };
