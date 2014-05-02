@@ -49,13 +49,6 @@ Blockly.JavaScript['draw_move'] = function(block) {
       '(' + value + ', \'block_id_' + block.id + '\');\n';
 };
 
-Blockly.Python['draw_move'] = function(block) {
-  var value = Blockly.Python.valueToCode(this, 'VALUE',
-      Blockly.Python.ORDER_NONE) || '0';
-  return 'Turtle.' + this.getFieldValue('DIR') +
-      '(' + value + ', \'block_id_' + this.id + '\')\n';
-};
-
 Blockly.Blocks['draw_turn'] = {
   // Block for turning left or right.
   init: function() {

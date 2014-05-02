@@ -66,11 +66,11 @@ Turtle.init = function() {
     blocklyDiv.style.left = rtl ? '10px' : '420px';
     blocklyDiv.style.width = (window.innerWidth - 440) + 'px';
     
-    //TEMP: fix the height for side-by-side work
-    blocklyDiv.style.height = ( (window.innerHeight - 100) / 2) + 'px';
 
     //TODO: make this a passed in configurable thing: isTortoise
-    if (Tortoise && Tortoise.resize) {
+    if (typeof Tortoise != "undefined" && Tortoise.resize) {
+      //TEMP: fix the height for side-by-side work
+      blocklyDiv.style.height = ( (window.innerHeight - 100) / 2) + 'px';
       Tortoise.resize(blocklyDiv);
     }
 
@@ -137,7 +137,7 @@ Turtle.init = function() {
 
   // Hookup Tortoise listener
   //TODO: make this a passed in configurable thing: isTortoise
-  if (Tortoise && Tortoise.init) {
+  if (typeof Tortoise != "undefined" && Tortoise.init) {
     Tortoise.init();
     Blockly.addChangeListener(Tortoise.update);
   }
