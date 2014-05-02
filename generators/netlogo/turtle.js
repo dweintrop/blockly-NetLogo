@@ -30,22 +30,22 @@ goog.require('Blockly.NetLogo');
 
 Blockly.NetLogo['draw_move'] = function(block) {
   var value =  Blockly.NetLogo.valueToCode(this, 'VALUE',
-      Blockly.Python.ORDER_NONE) || '0';
+      Blockly.NetLogo.ORDER_NONE) || '0';
   var stmt = this.getFieldValue('DIR') == 'moveForward' ? 'forward' : 'back';
   return stmt + ' ' + value + '\n';
 }
 
 Blockly.NetLogo['draw_turn'] = function(block) {
-  var value = Blockly.JavaScript.valueToCode(block, 'VALUE',
-      Blockly.JavaScript.ORDER_NONE) || '0';
+  var value = Blockly.NetLogo.valueToCode(block, 'VALUE',
+      Blockly.NetLogo.ORDER_NONE) || '0';
   var stmt = block.getFieldValue('DIR') == 'turnRight' ? 'right' : 'left';
   return stmt + ' ' + value + '\n';
 };
 
 
 Blockly.NetLogo['draw_width'] = function(block) {
-  var width = Blockly.JavaScript.valueToCode(block, 'WIDTH',
-      Blockly.JavaScript.ORDER_NONE) || '1';
+  var width = Blockly.NetLogo.valueToCode(block, 'WIDTH',
+      Blockly.NetLogo.ORDER_NONE) || '1';
 
   return 'set pen-size ' + width + '\n';
 };
@@ -56,7 +56,7 @@ Blockly.NetLogo['draw_pen'] = function(block) {
 
 Blockly.NetLogo['draw_colour'] = function(block) {
   var colour = Blockly.NetLogo.valueToCode(block, 'COLOUR',
-      Blockly.JavaScript.ORDER_NONE) || '\'#000000\'';
+      Blockly.NetLogo.ORDER_NONE) || '\'#000000\'';
   return 'set color ' + colour + '\n';
 };
 
@@ -65,15 +65,15 @@ Blockly.NetLogo['turtle_visibility'] = function(block) {
 };
 
 // No clear NetLogo analog
-// Blockly.JavaScript['draw_print'] = function(block) {
-//   var argument0 = String(Blockly.JavaScript.valueToCode(block, 'TEXT',
-//       Blockly.JavaScript.ORDER_NONE) || '\'\'');
+// Blockly.NetLogo['draw_print'] = function(block) {
+//   var argument0 = String(Blockly.NetLogo.valueToCode(block, 'TEXT',
+//       Blockly.NetLogo.ORDER_NONE) || '\'\'');
 //   return 'Turtle.drawPrint(' + argument0 + ', \'block_id_' +
 //       block.id + '\');\n';
 // };
 
 // No clear NetLogo analog
-// Blockly.JavaScript['draw_font'] = function(block) {
+// Blockly.NetLogo['draw_font'] = function(block) {
 //   return 'Turtle.drawFont(\'' + block.getFieldValue('FONT') + '\',' +
 //       Number(block.getFieldValue('FONTSIZE')) + ',\'' +
 //       block.getFieldValue('FONTSTYLE') + '\', \'block_id_' +

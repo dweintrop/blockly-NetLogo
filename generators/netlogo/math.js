@@ -19,8 +19,8 @@
  */
 
 /**
- * @fileoverview Generating Python for math blocks.
- * @author q.neutron@gmail.com (Quynh Neutron)
+ * @fileoverview Generating NetLogo for math blocks.
+ * @author dweintrop@u.northwestern.edu
  */
 'use strict';
 

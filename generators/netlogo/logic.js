@@ -54,10 +54,10 @@ Blockly.NetLogo['netlogo_controls_if'] = function(block) {
   var argument = Blockly.NetLogo.valueToCode(block, 'IF' + n,
       Blockly.NetLogo.ORDER_NONE) || 'false';
   var branch = Blockly.NetLogo.statementToCode(block, 'DO' + n) || '  \n';
-  var code = 'if ' + argument + '\n  [ ' + branch + '  ]';
+  var code = 'if ' + argument + ' [\n' + branch + ']\n';
   if (block.elseCount_) {
     branch = Blockly.NetLogo.statementToCode(block, 'ELSE') || '  \n';
-    code += '\n  [' + branch + '  ]';
+    code += ' [\n' + branch + ']\n';
   }
   return code;
 };
@@ -68,9 +68,9 @@ Blockly.NetLogo['netlogo_controls_if_else'] = function(block) {
   var argument = Blockly.NetLogo.valueToCode(block, 'IF' + n,
       Blockly.NetLogo.ORDER_NONE) || 'false';
   var branch = Blockly.NetLogo.statementToCode(block, 'DO' + n) || '  \n';
-  var code = 'ifelse ' + argument + '\n  [ ' + branch + '  ]';
+  var code = 'ifelse ' + argument + ' [\n' + branch + ']';
   branch = Blockly.NetLogo.statementToCode(block, 'ELSE') || '  \n';
-  code += '\n  [' + branch + '  ]';
+  code += '\n  [' + branch + ']\n';
   return code;
 };
 

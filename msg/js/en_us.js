@@ -81,6 +81,7 @@ Blockly.Msg.COLOUR_BLEND_TOOLTIP = 'Blends two colors together with a given rati
 
 // Loop Blocks.
 Blockly.Msg.CONTROLS_REPEAT_HELPURL = 'http://en.wikipedia.org/wiki/For_loop';
+Blockly.Msg.CONTROLS_REPEAT_TITLE = "repeat %1 times";
 Blockly.Msg.CONTROLS_REPEAT_TITLE_REPEAT = 'repeat';
 Blockly.Msg.CONTROLS_REPEAT_TITLE_TIMES = 'times';
 Blockly.Msg.CONTROLS_REPEAT_INPUT_DO = 'do';
