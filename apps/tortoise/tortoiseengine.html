@@ -18,7 +18,7 @@ function runCode(code) {
   xmlhttp = new XMLHttpRequest();
   xmlhttp.open("POST","/play/daveCompile",true);
   xmlhttp.setRequestHeader("Content-type","text/plain");
-  xmlhttp.send("ca \n cro 1 [ set size 2 ] \n ask turtle 0 [ " + code + " ] ");
+  xmlhttp.send("ca \n ask patches [ set pcolor white ] cro 1 [ set size 3 set color black ] \n ask turtle 0 [ " + code + " ] ");
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4) {
       eval(xmlhttp.responseText)
@@ -7246,7 +7246,7 @@ linkBuiltins = ["end1", "end2", "lcolor", "llabel", "llabelcolor", "lhidden", "l
 
 continuousMode = false;
 
-newState = false;
+var newState = false;
 
 NetLogoException = (function() {
   function NetLogoException(message) {
@@ -7375,6 +7375,7 @@ collectUpdates = function() {
 died = function(agent) {
   var update;
   if (Updates.length === 0 || (continuousMode && newState)) {
+    console.log("HA");
     Updates.push({
       turtles: {},
       patches: {},
@@ -8632,18 +8633,19 @@ World = (function() {
   };
 
   World.prototype.patchesAllBlack = function(val) {
-    this._patchesAllBlack = val;
-    return Updates.push({
-      world: {
-        0: {
-          patchesAllBlack: this._patchesAllBlack
-        },
-        turtles: {},
-        patches: {},
-        links: {},
-        observer: {}
-      }
-    });
+    if(this._patchesAllBlack != val) {
+      this._patchesAllBlack = val;
+      return Updates.push({
+        world: {
+          0: {
+            patchesAllBlack: this._patchesAllBlack
+            } },
+          turtles: {},
+          patches: {},
+          links: {},
+          observer: {}
+      });
+    }
   };
 
   World.prototype.clearAll = function() {
@@ -15070,10 +15072,6 @@ Widgets.addView(0, 0, 400, 400)
           var update = remainingUpdates[0];
           remainingUpdates = remainingUpdates.slice(1)
           session.update([update]);
-          //if(remainingUpdates.length > 0) {
-            //alert(remainingUpdates.length)
-            //alert(remainingUpdates.slice(1).length)
-          //}
         }
         setTimeout(updater, 100)
       }
