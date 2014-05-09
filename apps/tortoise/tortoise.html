@@ -11,6 +11,25 @@
   <script type="text/javascript" src="../common.js"></script>
   <script type="text/javascript" src="../turtle/turtle.js"></script>
   <!-- <script type="text/javascript" src="/storage.js"></script> -->
+  <script>
+function runCode(code) {
+  /*
+  xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("POST","/play/daveCompile",true);
+  xmlhttp.setRequestHeader("Content-type","text/plain");
+  xmlhttp.send("ca \n cro 1 \n " + code);
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4) {
+      alert(xmlhttp.responseText)
+      eval(xmlhttp.responseText)
+    }
+  }*/
+
+  document.getElementById("netlogoframe").contentWindow.runCode(code)
+  //alert(code)
+}
+  </script>
+
 </head>
 <body>
 
@@ -107,8 +126,9 @@
   </tr>
 </table>
 <div id="visualization">
-  <canvas id="scratch" width="400" height="400" style="display: none">  </canvas>
-  <canvas id="display" width="400" height="400">  </canvas>
+  <canvas id="scratch" width="400" height="400" style="display: none"></canvas>
+  <canvas id="display" width="400" height="400" style="display: none"></canvas>
+  <iframe src="tortoiseengine.html" style="position:relative;height:400px;width:400px" name="netlogoframe" id="netlogoframe"></iframe>
 </div>
 <table style="padding-top: 1em;">
   <tr>
@@ -131,7 +151,7 @@
       <img id="spinner" style="visibility: hidden;" src="../turtle/loading.gif" height=15 width=15>
     </td>
     <td style="width: 190px; text-align: center">
-      <button id="runButton" class="primary" onclick="Turtle.runButtonClick();" title="Makes the turtle do what the blocks say.">
+      <button id="runButton" class="primary" onclick="runCode(Tortoise.NLcodeMirror.getValue());" title="Makes the turtle do what the blocks say.">
         <img src="../../media/1x1.gif" class="run icon21">Run Program
       </button>
       <button id="resetButton" class="primary" onclick="Turtle.resetButtonClick();" style="display: none">
