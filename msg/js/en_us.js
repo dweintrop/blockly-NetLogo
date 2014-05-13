@@ -115,8 +115,10 @@ Blockly.Msg.CONTROLS_FOREACH_TOOLTIP = 'For each item in a list, set the item to
 
 Blockly.Msg.CONTROLS_FLOW_STATEMENTS_HELPURL = 'http://en.wikipedia.org/wiki/Control_flow';
 Blockly.Msg.CONTROLS_FLOW_STATEMENTS_OPERATOR_BREAK = 'break out of loop';
+Blockly.Msg.CONTROLS_FLOW_STATEMENTS_OPERATOR_STOP = 'stop the loop';
 Blockly.Msg.CONTROLS_FLOW_STATEMENTS_OPERATOR_CONTINUE = 'continue with next iteration of loop';
 Blockly.Msg.CONTROLS_FLOW_STATEMENTS_TOOLTIP_BREAK = 'Break out of the containing loop.';
+Blockly.Msg.CONTROLS_FLOW_STATEMENTS_TOOLTIP_STOP = 'Stop the containing loop.';
 Blockly.Msg.CONTROLS_FLOW_STATEMENTS_TOOLTIP_CONTINUE = 'Skip the rest of this loop, and\n' +
     'continue with the next iteration.';
 Blockly.Msg.CONTROLS_FLOW_STATEMENTS_WARNING = 'Warning:\n' +

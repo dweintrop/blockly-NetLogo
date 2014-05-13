@@ -74,12 +74,5 @@ Blockly.NetLogo['controls_forEach'] = function(block) {
 };
 
 Blockly.NetLogo['controls_flow_statements'] = function(block) {
-  // Flow statements: continue, break.
-  switch (block.getFieldValue('FLOW')) {
-    case 'BREAK':
-      return 'break;\n';
-    case 'CONTINUE':
-      return 'continue;\n';
-  }
-  throw 'Unknown flow statement.';
+  return 'stop\n';
 };
