@@ -207,6 +207,8 @@ Blockly.Msg.CONTROLS_FLOW_STATEMENTS_TOOLTIP_CONTINUE = 'Skip the rest of this l
 /// warning - The user has tried placing a block outside of a loop (for each, while, repeat, etc.), but this type of block may only be used within a loop.  See [https://code.google.com/p/blockly/wiki/Loops#Loop_Termination_Blocks https://code.google.com/p/blockly/wiki/Loops#Loop_Termination_Blocks].
 Blockly.Msg.CONTROLS_FLOW_STATEMENTS_WARNING = 'Warning: This block may only be used within a loop.';
 
+Blockly.Msg.CONTROLS_FLOW_STATEMENTS_TOOLTIP_BREAK = 'Break out of the containing loop.';
+
 // Logic Blocks.
 /// url - Describes conditional statements (if-then-else) in computer programs.  Consider using your language's translation of [https://en.wikipedia.org/wiki/If_else https://en.wikipedia.org/wiki/If_else], if present.
 Blockly.Msg.CONTROLS_IF_HELPURL = 'https://code.google.com/p/blockly/wiki/If_Then';

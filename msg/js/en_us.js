@@ -191,6 +191,11 @@ Blockly.Msg.LOGIC_TERNARY_TOOLTIP = 'Check the condition in "test". If the condi
 Blockly.Msg.MATH_NUMBER_HELPURL = 'http://en.wikipedia.org/wiki/Number';
 Blockly.Msg.MATH_NUMBER_TOOLTIP = 'A number.';
 
+Blockly.Msg.MATH_ADDITION_SYMBOL = "+";
+Blockly.Msg.MATH_SUBTRACTION_SYMBOL = "-";
+Blockly.Msg.MATH_MULTIPLICATION_SYMBOL = "×";
+Blockly.Msg.MATH_DIVISION_SYMBOL = "÷";
+Blockly.Msg.MATH_POWER_SYMBOL = "^";
 Blockly.Msg.MATH_ARITHMETIC_HELPURL = 'http://en.wikipedia.org/wiki/Arithmetic';
 Blockly.Msg.MATH_ARITHMETIC_TOOLTIP_ADD = 'Return the sum of the two numbers.';
 Blockly.Msg.MATH_ARITHMETIC_TOOLTIP_MINUS = 'Return the difference of the two numbers.';
@@ -210,6 +215,12 @@ Blockly.Msg.MATH_SINGLE_TOOLTIP_LOG10 = 'Return the base 10 logarithm of a numbe
 Blockly.Msg.MATH_SINGLE_TOOLTIP_EXP = 'Return e to the power of a number.';
 Blockly.Msg.MATH_SINGLE_TOOLTIP_POW10 = 'Return 10 to the power of a number.';
 
+Blockly.Msg.MATH_TRIG_ACOS = "acos";
+Blockly.Msg.MATH_TRIG_ASIN = "asin";
+Blockly.Msg.MATH_TRIG_ATAN = "atan";
+Blockly.Msg.MATH_TRIG_COS = "cos";
+Blockly.Msg.MATH_TRIG_SIN = "sin";
+Blockly.Msg.MATH_TRIG_TAN = "tan";
 Blockly.Msg.MATH_TRIG_HELPURL = 'http://en.wikipedia.org/wiki/Trigonometric_functions';
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = 'Return the sine of a degree (not radian).';
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = 'Return the cosine of a degree (not radian).';
@@ -262,15 +273,23 @@ Blockly.Msg.MATH_ONLIST_TOOLTIP_MODE = 'Return a list of the most common item(s)
 Blockly.Msg.MATH_ONLIST_TOOLTIP_STD_DEV = 'Return the standard deviation of the list.';
 Blockly.Msg.MATH_ONLIST_TOOLTIP_RANDOM = 'Return a random element from the list.';
 
+Blockly.Msg.MATH_MODULO_TITLE = "remainder of %1 ÷ %2";
 Blockly.Msg.MATH_MODULO_HELPURL = 'http://en.wikipedia.org/wiki/Modulo_operation';
 Blockly.Msg.MATH_MODULO_INPUT_DIVIDEND = 'remainder of';
 Blockly.Msg.MATH_MODULO_TOOLTIP = 'Return the remainder from dividing the two numbers.';
 
+Blockly.Msg.MATH_CONSTRAIN_TITLE = "constrain %1 low %2 high %3";
 Blockly.Msg.MATH_CONSTRAIN_HELPURL = 'http://en.wikipedia.org/wiki/Clamping_%28graphics%29';
 Blockly.Msg.MATH_CONSTRAIN_INPUT_CONSTRAIN = 'constrain';
 Blockly.Msg.MATH_CONSTRAIN_INPUT_LOW = 'low';
 Blockly.Msg.MATH_CONSTRAIN_INPUT_HIGH = 'high';
 Blockly.Msg.MATH_CONSTRAIN_TOOLTIP = 'Constrain a number to be between the specified limits (inclusive).';
+
+Blockly.Msg.MATH_RANDOM_HELPURL = 'random integer between 0 and %1'
+Blockly.Msg.MATH_RANDOM_OPERATOR_RANDOM = 'random'
+Blockly.Msg.MATH_RANDOM_OPERATOR_TOOLTIP = 'Returns a random whole number between 0 and a number'
+Blockly.Msg.MATH_RANDOM_OPERATOR_RANDOM_FLOAT = 'random float'
+Blockly.Msg.MATH_RANDOM_FLOAT_TOOLTIP2 = 'Returns a random number with decimal place values between 0 and a number';
 
 Blockly.Msg.MATH_RANDOM_INT_HELPURL = 'http://en.wikipedia.org/wiki/Random_number_generation';
 Blockly.Msg.MATH_RANDOM_INT_TITLE = 'random integer from %1 to %2';

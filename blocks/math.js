@@ -159,17 +159,16 @@ Blockly.Blocks['math_trig'] = {
 
 Blockly.Blocks['math_constant'] = {
   /**
-   * Block for constants: PI, E, the Golden Ratio, sqrt(2), 1/sqrt(2), INFINITY.
+   * Block for constants: PI, E, the Golden Ratio, sqrt(2), 1/sqrt(2).
    * @this Blockly.Block
    */
   init: function() {
     var CONSTANTS =
         [['\u03c0', 'PI'],
-         ['e', 'E'],
-         ['\u03c6', 'GOLDEN_RATIO'],
-         ['sqrt(2)', 'SQRT2'],
-         ['sqrt(\u00bd)', 'SQRT1_2'],
-         ['\u221e', 'INFINITY']];
+         ['e', 'E'] ];
+         // ['\u03c6', 'GOLDEN_RATIO'],
+         // ['sqrt(2)', 'SQRT2'],
+         // ['sqrt(\u00bd)', 'SQRT1_2']];
     this.setHelpUrl(Blockly.Msg.MATH_CONSTANT_HELPURL);
     this.setColour(230);
     this.setOutput(true, 'Number');
@@ -189,7 +188,6 @@ Blockly.Blocks['math_number_property'] = {
     var PROPERTIES =
         [[Blockly.Msg.MATH_IS_EVEN, 'EVEN'],
          [Blockly.Msg.MATH_IS_ODD, 'ODD'],
-         [Blockly.Msg.MATH_IS_PRIME, 'PRIME'],
          [Blockly.Msg.MATH_IS_WHOLE, 'WHOLE'],
          [Blockly.Msg.MATH_IS_POSITIVE, 'POSITIVE'],
          [Blockly.Msg.MATH_IS_NEGATIVE, 'NEGATIVE'],
@@ -395,6 +393,35 @@ Blockly.Blocks['math_constrain'] = {
                         Blockly.ALIGN_RIGHT)
     this.setInputsInline(true);
     this.setTooltip(Blockly.Msg.MATH_CONSTRAIN_TOOLTIP);
+  }
+};
+
+Blockly.Blocks['math_random'] = {
+  /**
+   * Block for generating random numbers.
+   * @this Blockly.Block
+   */
+  init: function() {
+    var OPERATORS =
+        [[Blockly.Msg.MATH_RANDOM_OPERATOR_RANDOM, 'RANDOM'],
+         [Blockly.Msg.MATH_RANDOM_OPERATOR_RANDOM_FLOAT, 'RANDOM-FLOAT']];
+    this.setHelpUrl(Blockly.Msg.MATH_RANDOM_HELPURL);
+    this.setColour(230);
+    this.setOutput(true, 'Number');
+    this.appendValueInput('NUM')
+        .setCheck('Number')
+        .appendField(new Blockly.FieldDropdown(OPERATORS), 'OP');
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+    this.setTooltip(function() {
+      var mode = thisBlock.getFieldValue('OP');
+      var TOOLTIPS = {
+        'RANDOM': Blockly.Msg.MATH_RANDOM_OPERATOR_TOOLTIP,
+        'RANDOM-FLOAT': Blockly.Msg.MATH_RANDOM_FLOAT_TOOLTIP2
+      };
+      return TOOLTIPS[mode];
+    });
+
   }
 };
 
