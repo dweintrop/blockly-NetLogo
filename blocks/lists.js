@@ -250,17 +250,13 @@ Blockly.Blocks['lists_indexOf'] = {
    * @this Blockly.Block
    */
   init: function() {
-    var OPERATORS =
-        [[Blockly.Msg.LISTS_INDEX_OF_FIRST, 'FIRST'],
-         [Blockly.Msg.LISTS_INDEX_OF_LAST, 'LAST']];
     this.setHelpUrl(Blockly.Msg.LISTS_INDEX_OF_HELPURL);
     this.setColour(260);
     this.setOutput(true, 'Number');
     this.appendValueInput('VALUE')
         .setCheck('Array')
         .appendField(Blockly.Msg.LISTS_INDEX_OF_INPUT_IN_LIST);
-    this.appendValueInput('FIND')
-        .appendField(new Blockly.FieldDropdown(OPERATORS), 'END');
+    this.appendValueInput('FIND').appendField(Blockly.Msg.LISTS_INDEX_OF_FIRST, 'END');
     this.setInputsInline(true);
     this.setTooltip(Blockly.Msg.LISTS_INDEX_OF_TOOLTIP);
   }

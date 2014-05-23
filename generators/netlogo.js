@@ -155,8 +155,8 @@ Blockly.NetLogo.init = function() {
     var defvars = [];
     var variables = Blockly.Variables.allVariables();
     for (var x = 0; x < variables.length; x++) {
-      defvars[x] = Blockly.NetLogo.variableDB_.getName(variables[x],
-          Blockly.Variables.NAME_TYPE) + ' = None';
+      defvars[x] = 'let ' + Blockly.NetLogo.variableDB_.getName(variables[x],
+          Blockly.Variables.NAME_TYPE) + ' []';
     }
     Blockly.NetLogo.definitions_['variables'] = defvars.join('\n');
   }
@@ -209,12 +209,12 @@ Blockly.NetLogo.quote_ = function(string) {
 };
 
 /**
- * Common tasks for generating Python from blocks.
+ * Common tasks for generating NetLogo from blocks.
  * Handles comments for the specified block and any connected value blocks.
  * Calls any statements following this block.
  * @param {!Blockly.Block} block The current block.
- * @param {string} code The Python code created for this block.
- * @return {string} Python code with comments and subsequent blocks added.
+ * @param {string} code The NetLogo code created for this block.
+ * @return {string} NetLogo code with comments and subsequent blocks added.
  * @private
  */
 Blockly.NetLogo.scrub_ = function(block, code) {

@@ -395,6 +395,8 @@ Blockly.Msg.LISTS_CREATE_WITH_CONTAINER_TOOLTIP = 'Add, remove, or reorder secti
 Blockly.Msg.LISTS_CREATE_WITH_ITEM_TITLE = 'item';
 Blockly.Msg.LISTS_CREATE_WITH_ITEM_TOOLTIP = 'Add an item to the list.';
 
+Blockly.Msg.LISTS_REPEAT_TITLE = "create list with item %1 repeated %2 times";
+
 Blockly.Msg.LISTS_REPEAT_HELPURL = 'http://publib.boulder.ibm.com/infocenter/lnxpcomp/v8v101/index.jsp?topic=%2Fcom.ibm.xlcpp8l.doc%2Flanguage%2Fref%2Farsubex.htm';
 Blockly.Msg.LISTS_REPEAT_INPUT_WITH = 'create list with item';
 Blockly.Msg.LISTS_REPEAT_INPUT_REPEATED = 'repeated';
@@ -402,10 +404,11 @@ Blockly.Msg.LISTS_REPEAT_INPUT_TIMES = 'times';
 Blockly.Msg.LISTS_REPEAT_TOOLTIP = 'Creates a list consisting of the given value\n' +
     'repeated the specified number of times.';
 
+Blockly.Msg.LISTS_LENGTH_TITLE = "length of %1";
 Blockly.Msg.LISTS_LENGTH_HELPURL = 'http://www.liv.ac.uk/HPC/HTMLF90Course/HTMLF90CourseNotesnode91.html';
 Blockly.Msg.LISTS_LENGTH_INPUT_LENGTH = 'length of';
 Blockly.Msg.LISTS_LENGTH_TOOLTIP = 'Returns the length of a list.';
-
+Blockly.Msg.LISTS_IS_EMPTY_TITLE = "%1 is empty";
 Blockly.Msg.LISTS_IS_EMPTY_HELPURL = 'http://www.liv.ac.uk/HPC/HTMLF90Course/HTMLF90CourseNotesnode91.html';
 Blockly.Msg.LISTS_INPUT_IS_EMPTY = 'is empty';
 Blockly.Msg.LISTS_TOOLTIP = 'Returns true if the list is empty.';
@@ -414,7 +417,7 @@ Blockly.Msg.LISTS_INDEX_OF_HELPURL = 'http://publib.boulder.ibm.com/infocenter/l
 Blockly.Msg.LISTS_INDEX_OF_INPUT_IN_LIST = 'in list';
 Blockly.Msg.LISTS_INDEX_OF_FIRST = 'find first occurrence of item';
 Blockly.Msg.LISTS_INDEX_OF_LAST = 'find last occurrence of item';
-Blockly.Msg.LISTS_INDEX_OF_TOOLTIP = 'Returns the index of the first/last occurrence\n' +
+Blockly.Msg.LISTS_INDEX_OF_TOOLTIP = 'Returns the index of the first occurrence\n' +
     'of the item in the list.\n' +
     'Returns 0 if text is not found.';
 
@@ -475,18 +478,27 @@ Blockly.Msg.LISTS_GET_SUBLIST_INPUT_IN_LIST = 'in list';
 Blockly.Msg.LISTS_GET_SUBLIST_INPUT_AT1 = 'get sub-list from';
 Blockly.Msg.LISTS_GET_SUBLIST_INPUT_AT2 = 'to';
 Blockly.Msg.LISTS_GET_SUBLIST_TOOLTIP = 'Creates a copy of the specified portion of a list.';
+Blockly.Msg.LISTS_GET_SUBLIST_TAIL = "";
+
+Blockly.Msg.LISTS_GET_SUBLIST_START_FIRST = "get sub-list from first";
+Blockly.Msg.LISTS_GET_SUBLIST_START_FROM_END = "get sub-list from # from end";
+Blockly.Msg.LISTS_GET_SUBLIST_START_FROM_START = "get sub-list from #";
+
+Blockly.Msg.LISTS_GET_SUBLIST_END_FROM_END = "to # from end";
+Blockly.Msg.LISTS_GET_SUBLIST_END_FROM_START = "to #";
+Blockly.Msg.LISTS_GET_SUBLIST_END_LAST = "to last";
 
 // Variables Blocks.
 Blockly.Msg.VARIABLES_GET_HELPURL = 'http://en.wikipedia.org/wiki/Variable_(computer_science)';
 Blockly.Msg.VARIABLES_GET_TITLE = '';
-Blockly.Msg.VARIABLES_GET_ITEM = 'item';
+Blockly.Msg.VARIABLES_GET_ITEM = 'myVar';
 Blockly.Msg.VARIABLES_GET_TAIL = '';
 Blockly.Msg.VARIABLES_GET_TOOLTIP = 'Returns the value of this variable.';
 Blockly.Msg.VARIABLES_GET_CREATE_SET = 'Create "set %1"';
 
 Blockly.Msg.VARIABLES_SET_HELPURL = 'http://en.wikipedia.org/wiki/Variable_(computer_science)';
 Blockly.Msg.VARIABLES_SET_TITLE = 'set';
-Blockly.Msg.VARIABLES_SET_ITEM = 'item';
+Blockly.Msg.VARIABLES_SET_ITEM = 'myVar';
 Blockly.Msg.VARIABLES_SET_TAIL = 'to';
 Blockly.Msg.VARIABLES_SET_TOOLTIP = 'Sets this variable to be equal to the input.';
 Blockly.Msg.VARIABLES_SET_CREATE_GET = 'Create "get %1"';
