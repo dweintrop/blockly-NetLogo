@@ -20,7 +20,7 @@
 
 /**
  * @fileoverview Generating Python for variable blocks.
- * @author q.neutron@gmail.com (Quynh Neutron)
+ * @author dweintrop@u.northwestern.edu
  */
 'use strict';
 

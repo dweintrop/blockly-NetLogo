@@ -43,10 +43,11 @@ td {
   vertical-align: top;
 }
 .content {
-  visibility: hidden;
   margin: 0;
-  padding: 1ex;
   position: absolute;
+}
+.content-hidden {
+  visibility: hidden;
 }
 pre.content {
   overflow: auto;

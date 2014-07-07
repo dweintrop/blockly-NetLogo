@@ -26,20 +26,23 @@ Tortoise.resize = function(parentBlock) {
 	var TortoiseDiv = document.getElementById('tortoise');
 
   TortoiseDiv.style.cssText = parentBlock.style.cssText;
-  TortoiseDiv.style.top = (parentBlock.scrollHeight + 100) + 'px';
+  TortoiseDiv.style.top = (parentBlock.scrollHeight + 70) + 'px';
   TortoiseDiv.style.overflow = 'auto';
 
 	var parentbBox = BlocklyApps.getBBox_(parentBlock);
   for (var x in Tortoise.code.TABS_) {
     var el = document.getElementById('content_' + Tortoise.code.TABS_[x]);
-    el.style.top = '28px';
-    // Height and width need to be set, read back, then set again to
-    // compensate for scrollbars.
+    if (el) {
 
-    el.style.height = parentbBox.height + 30 + 'px';
-    el.style.height = (2 * parentbBox.height - el.offsetHeight) + 'px';
-    el.style.width = parentbBox.width + 15 + 'px';
-    el.style.width = (2 * parentbBox.width - el.offsetWidth) + 'px';
+      // el.style.top = '28px';
+      // Height and width need to be set, read back, then set again to
+      // compensate for scrollbars.
+
+      el.style.height = parentbBox.height + 10 + 'px';
+      el.style.height = (2 * parentbBox.height - el.offsetHeight) + 'px';
+      el.style.width = parentbBox.width + 15 + 'px';
+      el.style.width = (2 * parentbBox.width - el.offsetWidth) + 'px';
+    }
   }
 }
 
@@ -210,12 +213,17 @@ Tortoise.code.renderContent = function() {
  * Initialize Blockly.  Called on page load.
  */
 Tortoise.code.init = function() {
-
   // Add to reserved word list: Local variables in execution evironment (runJS)
   // and the infinite loop detection function.
   Blockly.JavaScript.addReservedWords('code,timeouts,checkTimeout');
 
-  Tortoise.code.tabClick('tab_' + Tortoise.code.selected);
+  var hasTabs = document.getElementById('tabTable');
+  
+  if (hasTabs) {
+    Tortoise.code.tabClick('tab_' + Tortoise.code.selected);
+  } else {
+    Tortoise.updateNetLogo();
+  }
 };
 
 if (window.location.pathname.match(/readonly.html$/)) {

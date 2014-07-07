@@ -515,7 +515,7 @@ Blockly.Msg.PROCEDURES_DEFRETURN_HELPURL = 'http://en.wikipedia.org/wiki/Procedu
 Blockly.Msg.PROCEDURES_DEFRETURN_TITLE = Blockly.Msg.PROCEDURES_DEFNORETURN_TITLE;
 Blockly.Msg.PROCEDURES_DEFRETURN_PROCEDURE = Blockly.Msg.PROCEDURES_DEFNORETURN_PROCEDURE;
 Blockly.Msg.PROCEDURES_DEFRETURN_DO = Blockly.Msg.PROCEDURES_DEFNORETURN_DO;
-Blockly.Msg.PROCEDURES_DEFRETURN_RETURN = 'return';
+Blockly.Msg.PROCEDURES_DEFRETURN_RETURN = 'report';
 Blockly.Msg.PROCEDURES_DEFRETURN_TOOLTIP = 'Creates a function with an output.';
 
 Blockly.Msg.PROCEDURES_DEF_DUPLICATE_WARNING = 'Warning:\n' +
@@ -532,6 +532,7 @@ Blockly.Msg.PROCEDURES_CALLRETURN_TOOLTIP = 'Run the user-defined function "%1" 
 
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE = 'inputs';
 Blockly.Msg.PROCEDURES_MUTATORARG_TITLE = 'input name:';
+Blockly.Msg.PROCEDURES_MUTATORARG_TOOLTIP = "Add an input to the function.";
 
 Blockly.Msg.PROCEDURES_HIGHLIGHT_DEF = 'Highlight procedure definition';
 Blockly.Msg.PROCEDURES_CREATE_DO = 'Create "%1"';

@@ -185,6 +185,7 @@
   <script type="text/javascript" src="../../generators/netlogo/loops.js"></script>
   <script type="text/javascript" src="../../generators/netlogo/lists.js"></script>
   <script type="text/javascript" src="../../generators/netlogo/variables.js"></script>
+  <script type="text/javascript" src="../../generators/netlogo/procedures.js"></script>
 
   <script type="text/javascript" src="../../python_compressed.js"></script>
 
@@ -228,29 +229,10 @@
 
 <div id="tortoise" style="position:fixed;">
 
-  <table width="100%" id="tabTable">
-    <tr id="tabRow" height="16px;">
-      <td id="tab_javascript" class="taboff" onclick="Tortoise.code.tabClick(this.id)">JS - Read Only</td>
-      <td class="tabmin">&nbsp;</td>
-      <td id="tab_codeMirror" class="taboff" onclick="Tortoise.code.tabClick(this.id)">JS - Code Mirror</td>
-      <td class="tabmin">&nbsp;</td>
-      <td id="tab_netLogo" class="tabon" onclick="Tortoise.code.tabClick(this.id)">NetLogo</td>
-      <td class="tabmin">&nbsp;</td>
-      <td id="tab_python" class="taboff" onclick="Tortoise.code.tabClick(this.id)">Python</td>
-      <td class="tabmin">&nbsp;</td>
-      <td id="tab_xml" class="taboff" onclick="Tortoise.code.tabClick(this.id)">XML</td>
-    </tr>
-  </table>
-
-  <pre id="content_javascript" class="content content-hidden"></pre>
-  <div id="content_codeMirror" class="content content-hidden" >
-    <textarea id="codeMirror-textArea"></textarea>
-  </div>
-  <div id="content_netLogo" class="content content-hidden">
+  <div id="content_netLogo" class="content">
     <textarea id="netLogo-textArea"></textarea>
   </div>
-  <pre id="content_python" class="content content-hidden"></pre>
-  <div id="content_xml" class="content content-hidden" ><textarea id="codeMirror_xml"></textarea></div>
+ 
 </div>
 
 <!-- apps.storageDialog(null, null, opt_ijData) -->

@@ -20,7 +20,7 @@
 
 /**
  * @fileoverview Generating JavaScript for loop blocks.
- * @author fraser@google.com (Neil Fraser)
+ * @author dweintrop@u.northwestern.edu
  */
 'use strict';
 
