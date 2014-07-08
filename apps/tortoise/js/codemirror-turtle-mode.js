@@ -4,8 +4,7 @@ CodeMirror.defineMode("turtle", function(config, parserConfig) {
   var indentUnit = config.indentUnit;
   var statementIndent = parserConfig.statementIndent;
   var jsonMode = parserConfig.json;
-  var isTS = parserConfig.typescript;
-
+  
   // Tokenizer
 
   var keywords = function(){
@@ -13,8 +12,11 @@ CodeMirror.defineMode("turtle", function(config, parserConfig) {
     var A = kw("keyword a"), B = kw("keyword b"), C = kw("keyword c");
     var operator = kw("operator"), atom = {type: "atom", style: "atom"};
 
+    function oneArgKW(type) {return kw(type, type);}
+    function turtleKW(type, style) {return {type: type, style: "turtle"};}
+
     var jsKeywords = {
-      "if": kw("if"), "while": A, "with": A, "else": B, "do": B, "try": B, "finally": B,
+      "while": A, "with": A, "do": B, "try": B, "finally": B,
       "return": C, "break": C, "continue": C, "new": C, "delete": C, "throw": C, "debugger": C,
       "var": kw("var"), "const": kw("var"), "let": kw("var"),
       "function": kw("function"), "catch": kw("catch"),
@@ -22,36 +24,27 @@ CodeMirror.defineMode("turtle", function(config, parserConfig) {
       "in": operator, "typeof": operator, "instanceof": operator,
       "true": atom, "false": atom, "null": atom, "undefined": atom, "NaN": atom, "Infinity": atom,
       "this": kw("this"), "module": kw("module"), "class": kw("class"), "super": kw("atom"),
-      "yield": C, "export": kw("export"), "import": kw("import"), "extends": C
+      "yield": C, "export": kw("export"), "import": kw("import"), "extends": C,
+
+      // turtle
+      "forward": turtleKW("forward"), "fd": turtleKW("fd"), "back": turtleKW("back"), "bk": turtleKW("bk"), 
+      "right": turtleKW("right"), "rt": turtleKW("rt"), "left": turtleKW("left"), "lt": turtleKW("lt"), 
+      "pen-size": turtleKW("pen-size"), "pen-up": turtleKW("pen-up"), "pu": turtleKW("pu"),
+      "hide-turtle": turtleKW("hide-turtle"), "pen-up": turtleKW("pen-up"), "pu": turtleKW("pu"),
+      "show-turtle": turtleKW("show-turtle")
+
+      // colors
+      "set-color": oneArgKW("set-color"), "rgb": kw("rgb", "color"), "aqua" : oneArgKW("aqua"),
+      "black": oneArgKW("black"), "blue": oneArgKW("blue"), "brown" : oneArgKW("brown"),
+      "grey": oneArgKW("grey"), "green": oneArgKW("green"), "orange" : oneArgKW("orange"),
+      "pink": oneArgKW("pink"), "purple": oneArgKW("purple"), "red" : oneArgKW("red"),
+      "white": oneArgKW("white"), "yellow": oneArgKW("yellow"), 
+
+      // logic
+      "if": oneArgKW("if"), "ifelse": kw("if", "ifelse"), "true" : kw("true", "bool"), 
+      "false" : kw("false", "bool")
     };
 
-    var turtleKeywords = Textly.Lang.Turtle().codeMirrorStyles();
-    for (var attr in turtleKeywords) {
-      jsKeywords[attr] = turtleKeywords[attr];
-    }
-
-    // Extend the 'normal' keywords with the TypeScript language extensions
-    if (isTS) {
-      var type = {type: "variable", style: "variable-3"};
-      var tsKeywords = {
-        // object-like things
-        "interface": kw("interface"),
-        "extends": kw("extends"),
-        "constructor": kw("constructor"),
-
-        // scope modifiers
-        "public": kw("public"),
-        "private": kw("private"),
-        "protected": kw("protected"),
-        "static": kw("static"),
-
-        // types
-        "string": type, "number": type, "bool": type, "any": type
-      };
-
-      for (var attr in tsKeywords) {
-        jsKeywords[attr] = tsKeywords[attr];
-      }
     }
 
 
@@ -329,7 +322,7 @@ CodeMirror.defineMode("turtle", function(config, parserConfig) {
     if (type == "var") return cont(pushlex("vardef", value.length), vardef, expect(";"), poplex);
     if (type == "keyword a") return cont(pushlex("form"), expression, statement, poplex);
     if (type == "keyword b") return cont(pushlex("form"), statement, poplex);
-    if (type == "{") return cont(pushlex("}"), block, poplex);
+    if (type == "[") return cont(pushlex("]"), block, poplex);
     if (type == ";") return cont();
     if (type == "if") return cont(pushlex("form"), expression, statement, poplex, maybeelse);
     if (type == "function") return cont(functiondef);
@@ -471,7 +464,7 @@ CodeMirror.defineMode("turtle", function(config, parserConfig) {
     return pass(statement, block);
   }
   function maybetype(type) {
-    if (isTS && type == ":") return cont(typedef);
+    if (type == ":") return cont(typedef);
   }
   function typedef(type) {
     if (type == "variable"){cx.marked = "variable-3"; return cont();}

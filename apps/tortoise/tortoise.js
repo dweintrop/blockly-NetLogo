@@ -85,7 +85,7 @@ Tortoise.updateNetLogo = function() {
     var nlTextArea = document.getElementById('netLogo-textArea');
     Tortoise.NLcodeMirror = CodeMirror.fromTextArea(nlTextArea, 
       {
-        mode: "javascript",
+        mode: "turtle",
         lineNumbers: true,
         tabSize: 2
       });

@@ -53,7 +53,7 @@ Blockly.NetLogo['colour_rgb'] = function(block) {
   var r = Blockly.NetLogo.valueToCode(block, 'RED', Blockly.NetLogo.ORDER_NONE) || 0;
   var g = Blockly.NetLogo.valueToCode(block, 'GREEN', Blockly.NetLogo.ORDER_NONE) || 0;
   var b = Blockly.NetLogo.valueToCode(block, 'BLUE', Blockly.NetLogo.ORDER_NONE) || 0;
-  var code = 'rgb' + r + ' ' + g + ' ' + b + ')';
+  var code = 'rgb ' + r + ' ' + g + ' ' + b;
   return [code, Blockly.NetLogo.ORDER_ATOMIC];
 };
 
